@@ -1,0 +1,51 @@
+.aLink {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.aLink .homeIcon {
+  width: 30px;
+  stroke: #fff;
+  fill: #fff;
+  height: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+.aLink .homeIcon .homeIcon:hover {
+  transform: scale(1.2);
+}
+.aLink .aLink:hover {
+  color: #f1f1f1;
+}
+.aLink .aLink.active {
+  color: #fff;
+  background-color: #4CAF50;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.main {
+  margin-left: 160px;
+  font-size: 28px;
+  padding: 0px 10px;
+}/*# sourceMappingURL=App.css.map */
