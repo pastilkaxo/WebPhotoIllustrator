@@ -3,7 +3,7 @@ const app = express();
 const PORT = 5000;
 
 const {createDataBase, createCustomCollection, createCollections} = require('./Database/API/createObjects'); 
-
+const {deleteDatabase, deleteCollection, deleteDocument} = require("./Database/API/deleteObject")
 
 
 app.listen(PORT, () => {
