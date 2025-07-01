@@ -1,10 +1,10 @@
-const express = require('express');
+import { queryOneDocument,queryManyDocuments,sortQueryDocs } from './Database/API/queryObjects';
+import express from 'express';
 const app = express();
 const PORT = 5000;
 
 const {createDataBase, createCustomCollection, createCollections} = require('./Database/API/createObjects'); 
 const {deleteDatabase, deleteCollection, deleteDocument} = require("./Database/API/deleteObject")
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
