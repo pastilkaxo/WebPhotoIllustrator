@@ -2,15 +2,27 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 
+const {createDataBase, createCustomCollection, createCollections} = require('./Database/API/createObjects'); 
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-app.get('/test', (req, res) => {
-    res.json({
-        message: 'Hello from the server!',
-        status: 'success'
-    });
+app.get('/api/database/create', async (req, res) => {
+  try {
+    const result = await createDataBase();
+    if (result) {
+      console.log("Database created successfully");
+      res.status(200).json({ message: "Database created successfully" ,status:"Success"});
+    } else {
+      res.status(500).json({ message: "Database not created successfully" ,status:"Error"});
+    }
+  } catch (err) {
+    console.error("Error creating database:", err);
+    res.status(500).send("Error creating database");
+    }
 });
 
 

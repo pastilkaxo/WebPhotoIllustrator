@@ -25,6 +25,12 @@
   background-color: #4CAF50;
 }
 
+.main-content {
+  margin-top: 5rem;
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -33,13 +39,17 @@
     font-size: 18px;
   }
 }
+@font-face {
+  font-family: "Savate";
+  src: url("https://fonts.googleapis.com/css2?family=Savate:ital,wght@0,200..900;1,200..900&display=swap");
+}
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Savate";
   background-color: #f0f0f0;
   color: #333;
 }

@@ -14,11 +14,16 @@
     "@types/react-dom": "^19.1.6",
     "bootstrap": "^5.3.7",
     "express": "^5.1.0",
+    "fabric": "^6.7.0",
+    "fabricjs-react": "^1.2.2",
+    "mongodb": "^6.17.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webilcon": "^1.0.0",
+    "webillustrator": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@types/fabric": "^5.3.10",
     "react-router-dom": "^7.6.2"
   }
 }
