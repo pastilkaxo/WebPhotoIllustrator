@@ -5,6 +5,8 @@ const PORT = 5000;
 
 const {createDataBase, createCustomCollection, createCollections} = require('./Database/API/createObjects'); 
 const {deleteDatabase, deleteCollection, deleteDocument} = require("./Database/API/deleteObject")
+const { modifyOneDocument, modifyDocument, replaceDocument } = require("./Database/API/updateObjects")
+const {insertOneDocument, insertManyDocuments} = require("./Database/API/insertObject")
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

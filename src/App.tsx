@@ -9,6 +9,7 @@ import {
 import Main from './Components/Main/Main';
 import Header from './Components/Header/Header';
 import Test from './Components/Main/Test';
+import LoginModal from './Components/Header/LoginModal';
 
 interface ResponseData {
   message: string;
@@ -40,15 +41,19 @@ export default function App() {
   }, []);
 
   return (
-      <Router>
-      <Header  />
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Main db={ state } />} />
-          <Route path="/about" element={<Test />} />
-          <Route path="/contact" element={<div className='main'>Contact Page</div>} />
-        </Routes>
-      </main>
-      </Router>
+    <Router>
+    <div className="wrapper d-flex min-vh-100">
+      <Header />
+        <div className="flex-grow-1" style={{ marginLeft: 0 }}>
+        <main className="main-content p-4">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/about" element={<Test />} />
+            <Route path="/contact" element={<div className='main'>Contact Page</div>} />
+          </Routes>
+        </main>
+      </div>
+    </div>
+  </Router>
   )
 }
