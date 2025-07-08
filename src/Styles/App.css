@@ -1,26 +1,74 @@
+@charset "UTF-8";
 .nav {
   align-items: center;
   justify-content: center;
+  gap: 30px;
+}
+
+.logoIcon {
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+
+.logoIcon:hover {
+  transform: scale(1.2);
 }
 
 .homeIcon {
-  width: 28px;
+  width: 42px;
   transition: transform 0.3s ease;
 }
-.homeIcon .homeIcon:hover {
+
+.homeIcon:hover {
   transform: scale(1.2);
 }
-.homeIcon .aLink:hover {
+
+.accountIcon {
+  transition: transform 0.3s ease;
+}
+
+.accountIcon:hover {
+  transform: scale(1.2);
+}
+
+.aLink:hover {
   color: #f1f1f1;
 }
-.homeIcon .aLink.active {
+
+.aLink:active {
   color: #fff;
   background-color: #4CAF50;
 }
 
-.main-content {
-  margin-top: 5rem;
-  padding: 20px;
+.main-container {
+  scroll-behavior: smooth;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+#section1 {
+  background-image: url(".\\Images\\фон.png");
+}
+
+#section2 {
+  background-color: #4ecdc4;
+}
+
+#section3 {
+  background-color: #ffe66d;
+}
+
+#section4 {
+  background-color: #1a535c;
+  color: white;
 }
 
 @media (max-width: 767.98px) {
@@ -40,13 +88,16 @@
   .nav {
     flex-direction: row !important;
     width: 100% !important;
+    gap: 10px;
     justify-content: center !important;
     align-items: center !important;
     margin-bottom: 0 !important;
   }
+  .homeIcon {
+    width: 32px;
+  }
   .accountIcon {
     width: 40px;
-    height: 40px;
     margin-left: auto;
   }
 }
@@ -67,18 +118,32 @@
   }
 }
 @font-face {
-  font-family: "Savate";
-  src: url("https://fonts.googleapis.com/css2?family=Savate:ital,wght@0,200..900;1,200..900&display=swap");
+  font-family: "Roboto";
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 }
 * {
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto";
+  font-weight: 800;
+  font-style: normal;
+}
+
 body {
-  font-family: "Savate";
   background-color: #f0f0f0;
   color: #333;
+}
+
+.roboto-font {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 .main {

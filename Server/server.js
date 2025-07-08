@@ -28,6 +28,8 @@ app.get('/api/database/create', async (req, res) => {
 });
 
 
+
+
 // React App (localhost:3000) → Webpack Dev Server → Express Server (localhost:5000)
 
 // Webpack Development Server (WDS) - это инструмент, 

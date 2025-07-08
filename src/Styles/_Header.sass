@@ -2,16 +2,24 @@
 .nav
     align-items: center
     justify-content: center
-.homeIcon
-    width: 28px
+    gap: 30px
+.logoIcon
+    width: 50px
     transition: transform 0.3s ease
+.logoIcon:hover
+    transform: scale(1.2)
+.homeIcon
+    width: 42px
+    transition: transform 0.3s ease
+.homeIcon:hover
+    transform: scale(1.2)
+.accountIcon
+    transition: transform 0.3s ease
+.accountIcon:hover
+    transform: scale(1.2)
 
-    & .homeIcon:hover
-        transform: scale(1.2)
-
-    & .aLink:hover
-        color: #f1f1f1
-
-    & .aLink.active
-        color: #fff
-        background-color: #4CAF50
+.aLink:hover
+    color: #f1f1f1
+.aLink:active
+    color: #fff
+    background-color: #4CAF50

@@ -45,7 +45,7 @@ export default function App() {
     <div className="wrapper d-flex min-vh-100">
       <Header />
         <div className="flex-grow-1" style={{ marginLeft: 0 }}>
-        <main className="main-content p-4">
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/about" element={<Test />} />
