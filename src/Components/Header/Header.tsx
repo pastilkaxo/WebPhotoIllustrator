@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LoginModal from './LoginModal'
+import NavBar from './NavBar'
 
 function Header() {
   return (
@@ -15,7 +16,12 @@ function Header() {
         zIndex: 1150, 
       }}
     >
-      <ul className="nav nav-pills flex-md-column flex-row mb-auto w-100 justify-content-center align-items-center">
+      <ul className="main-menu nav navbar nav-pills flex-md-column flex-row mb-auto w-100 justify-content-center align-items-center">
+      <li className='nav-item menu-togler'>
+      <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+      </li>
       <li className="nav-item">
           <Link className=" nav-link text-white" to="/">
             <img className='logoIcon' src='/Images/logo.png' alt='logo' />
@@ -26,12 +32,12 @@ function Header() {
             <img className='homeIcon' src='/Images/home.png' alt='Home' />
           </Link>
         </li>
-        <li>
+        <li className='nav-item'>
           <Link className="nav-link text-white" to="/about">
             <img className='homeIcon' src='/Images/catalog.png' alt='Catalog' />
           </Link>
         </li>
-        <li>
+        <li className='nav-item'>
           <Link className="nav-link text-white" to="/contact">
             <img className='homeIcon' src='/Images/edit.png' alt='Create' />
           </Link>
@@ -39,6 +45,7 @@ function Header() {
       </ul>
       <img className='accountIcon ms-md-0 ms-auto' src='/Images/login.png' alt='login' data-bs-toggle="modal" data-bs-target="#loginModal" />
       <LoginModal />
+      <NavBar/>
     </div>
   )
 }

@@ -15,7 +15,7 @@
         flex-direction: row !important
         width: 100% !important
         gap: 10px
-        justify-content: center !important
+        justify-content: start !important
         align-items: center !important
         margin-bottom: 0 !important
     .homeIcon
@@ -24,8 +24,18 @@
     .accountIcon
         width: 40px
         margin-left: auto
+    .main-menu
+        & .nav-item
+            display: none
+        & .menu-togler
+            display: block
 
 @media (min-width: 768px)
+    .main-menu
+        & .nav-item
+            display: block
+        & .menu-togler
+            display: none
     .bg-success
         width: 120px !important
         min-width: 120px !important

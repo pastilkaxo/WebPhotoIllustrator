@@ -12,7 +12,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-app.get('/api/database/create', async (req, res) => {
+app.post('/api/database/create', async (req, res) => {
   try {
     const result = await createDataBase();
     if (result) {
@@ -26,6 +26,21 @@ app.get('/api/database/create', async (req, res) => {
     res.status(500).send("Error creating database");
     }
 });
+
+app.post("", async (req, res) => {
+  try {
+    
+  }
+  catch (err) {
+    console.error("Error creating database:", err);
+    res.status(500).send("Error creating database");
+  }
+})
+
+
+
+
+
 
 
 

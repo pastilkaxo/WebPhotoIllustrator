@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .nav {
   align-items: center;
   justify-content: center;
@@ -55,7 +54,25 @@
 }
 
 #section1 {
-  background-image: url(".\\Images\\фон.png");
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-image: url("https://github.com/pastilkaxo/WebPhotoIllustrator/blob/f7b17b911ecc6847fb5be11e4823fd1ec522adc1/public/Images/bg1.png?raw=true");
+}
+#section1 .sum1 {
+  font-size: 80px;
+}
+#section1 .regForm {
+  border-radius: 30px;
+  background-color: white;
+  width: 500px;
+  height: 600px;
+}
+#section1 .logoBg {
+  border-radius: 30px;
+  background-color: green;
+  width: 60px;
+  height: 60px;
 }
 
 #section2 {
@@ -89,7 +106,7 @@
     flex-direction: row !important;
     width: 100% !important;
     gap: 10px;
-    justify-content: center !important;
+    justify-content: start !important;
     align-items: center !important;
     margin-bottom: 0 !important;
   }
@@ -100,8 +117,20 @@
     width: 40px;
     margin-left: auto;
   }
+  .main-menu .nav-item {
+    display: none;
+  }
+  .main-menu .menu-togler {
+    display: block;
+  }
 }
 @media (min-width: 768px) {
+  .main-menu .nav-item {
+    display: block;
+  }
+  .main-menu .menu-togler {
+    display: none;
+  }
   .bg-success {
     width: 120px !important;
     min-width: 120px !important;
@@ -129,8 +158,6 @@
 html {
   scroll-behavior: smooth;
   font-family: "Roboto";
-  font-weight: 800;
-  font-style: normal;
 }
 
 body {
@@ -141,6 +168,7 @@ body {
 .roboto-font {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
+  color: white;
   font-weight: 800;
   font-style: normal;
   font-variation-settings: "wdth" 100;
