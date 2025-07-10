@@ -38,7 +38,7 @@ function Header() {
           </Link>
         </li>
         <li className='nav-item'>
-          <Link className="nav-link text-white" to="/contact">
+          <Link className="nav-link text-white" to="/editor">
             <img className='homeIcon' src='/Images/edit.png' alt='Create' />
           </Link>
         </li>

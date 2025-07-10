@@ -10,6 +10,7 @@ import Main from './Components/Main/Main';
 import Header from './Components/Header/Header';
 import Test from './Components/Main/Test';
 import LoginModal from './Components/Header/LoginModal';
+import Editor from './Components/Main/Editor/Editor';
 
 interface ResponseData {
   message: string;
@@ -49,7 +50,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/about" element={<Test />} />
-            <Route path="/contact" element={<div className='main'>Contact Page</div>} />
+            <Route path="/editor" element={<Editor/>} />
           </Routes>
         </main>
       </div>

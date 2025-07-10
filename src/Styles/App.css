@@ -74,6 +74,25 @@
   width: 60px;
   height: 60px;
 }
+#section1 #accEnter {
+  width: 100%;
+  padding: 7px;
+  border-radius: 30px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  transition: transform 0.3s ease;
+  transition: background-color 0.1s ease;
+  margin-top: 10px;
+}
+#section1 #accEnter:hover {
+  transform: scale(1.1);
+  margin-top: 10px;
+}
+#section1 #accEnter:active {
+  background-color: green;
+}
 
 #section2 {
   background-color: #4ecdc4;
