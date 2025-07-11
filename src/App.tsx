@@ -8,10 +8,8 @@ import {
   from 'react-router-dom';
 import Main from './Components/Main/Main';
 import Header from './Components/Header/Header';
-import Test from './Components/Main/Test';
-import LoginModal from './Components/Header/LoginModal';
 import Editor from './Components/Main/Editor/Editor';
-
+import Storage from './Components/Main/Storage/Storage';
 interface ResponseData {
   message: string;
   status: string;
@@ -49,7 +47,7 @@ export default function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/about" element={<Test />} />
+            <Route path="/storage" element={<Storage />} />
             <Route path="/editor" element={<Editor/>} />
           </Routes>
         </main>

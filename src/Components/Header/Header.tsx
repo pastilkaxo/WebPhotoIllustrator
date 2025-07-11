@@ -1,9 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import LoginModal from './LoginModal'
 import NavBar from './NavBar'
 
 function Header() {
+  const location = useLocation();
+  const isEditorPage = location.pathname === '/editor';
+
+  if (isEditorPage) {
+    return null;
+  }
+
   return (
     <div
       className="d-flex flex-md-column flex-row flex-shrink-0 p-3 bg-success bg-gradient text-white"
@@ -33,7 +40,7 @@ function Header() {
           </Link>
         </li>
         <li className='nav-item'>
-          <Link className="nav-link text-white" to="/about">
+          <Link className="nav-link text-white" to="/storage">
             <img className='homeIcon' src='/Images/catalog.png' alt='Catalog' />
           </Link>
         </li>
