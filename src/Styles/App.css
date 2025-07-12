@@ -115,10 +115,13 @@
 }
 
 #menu-bar {
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 100px;
   background-color: #343a40;
   color: white;
-  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -140,6 +143,7 @@
   display: flex;
   flex: 1;
   height: calc(100vh - 60px);
+  background-color: #171719;
 }
 
 #tool-actions {
@@ -174,11 +178,42 @@
 }
 
 .sample-canva {
+  background-color: white;
   border: 1px solid black;
   flex: 1;
   margin: 20px;
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
+}
+
+.canvas-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-container {
+  overflow: hidden;
+}
+
+#action-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#action-menu .pointer-cords {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#action-menu .canva-sizes {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media (max-width: 767.98px) {
