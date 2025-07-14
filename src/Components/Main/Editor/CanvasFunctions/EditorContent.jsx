@@ -1,33 +1,68 @@
-import React from 'react'
-import Tooltip from '@mui/material/Tooltip'
-import Button from '@mui/material/Button';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { styled } from '@mui/material/styles';
+import React, { useEffect } from 'react';
+import { fabric } from 'fabric';
+import Tooltip from '@mui/material/Tooltip';
 
-export default function EditorContent({ canvasRef,addRectangle }) {
-
-  const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
+export default function EditorContent({
+  canvasRef,
+  fabricRef,
+  addRectangle,
+  addCircle,
+  setWidth,
+  setHeight,
+  setPointerCords,
+  zoom,
+  setZoom
+}) {
+useEffect(() => {
+  if (!canvasRef.current) return;
+  
+  const container = canvasRef.current.parentElement;
+  if (!container) return;      
+  const canvas = new fabric.Canvas(canvasRef.current, {
+    width: 800,
+    height: 600,
+    backgroundColor: 'white',
+    selection: true
   });
+  fabricRef.current = canvas;
+  console.log('Canvas initialized:', canvas);
+  
+  setWidth(canvas.getWidth());
+  setHeight(canvas.getHeight());
 
+  canvas.renderAll();
 
-  React.useEffect(() => {
-    if (canvasRef.current) {
-      const container = canvasRef.current.parentElement;
-      canvasRef.current.width = container.clientWidth - 300;
-      canvasRef.current.height = container.clientHeight - 100;
+  const handleMouseWheel = (e) => {
+    if (e.e.ctrlKey) {
+      e.e.preventDefault();
+      const delta = e.e.deltaY > 0 ? -0.1 : 0.1;
+      const newZoom = Math.min(Math.max(zoom + delta, 0.5), 3);
+      setZoom(newZoom);
+      canvas.setZoom(newZoom);
     }
-  }, [canvasRef]);
+  };
+
+  const handleMouseMove = (e) => {
+    const pointer = canvas.getPointer(e.e);
+    setPointerCords({ x: Math.round(pointer.x), y: Math.round(pointer.y) });
+  };
+
+  const handleClearCords = () => {
+    setPointerCords({ x: 0, y: 0 });
+  };
+
+  canvas.on('mouse:wheel', handleMouseWheel);
+  canvas.on('mouse:move', handleMouseMove);
+  canvas.on('mouse:out', handleClearCords);
+
+  return () => {
+    canvas.dispose();
+  };
+}, []);
+
+
   return (
-      <div className="editor-content">
+   <div className="editor-content">
         <ul id='tool-actions'>
           <li className='tool-action'>
             <Tooltip title="Перемещение" arrow>
@@ -44,9 +79,9 @@ export default function EditorContent({ canvasRef,addRectangle }) {
             <img src='/Images/EditorIcons/crop.png' alt='crop'/>  
             </Tooltip>
           </li>
-          <li className='tool-action'>
+          <li className='tool-action' onClick={addRectangle}>
             <Tooltip title="Фигура" arrow>
-            <img src='/Images/EditorIcons/figures.png' alt='figures' onClick={addRectangle}/>
+            <img src='/Images/EditorIcons/figures.png' alt='figures'/>
             </Tooltip>
           </li>
           <li className='tool-action'>
@@ -97,7 +132,8 @@ export default function EditorContent({ canvasRef,addRectangle }) {
         </Tooltip>
       </ul>
       <div className='canvas-wrapper'>
-        <canvas ref={canvasRef} className="sample-canva"/>
+        <canvas ref={canvasRef}
+       />
         </div>
       </div>
   )
