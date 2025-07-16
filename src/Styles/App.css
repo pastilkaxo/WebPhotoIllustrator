@@ -613,6 +613,23 @@
   background-color: #4CAF50;
 }
 
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .main-container {
   scroll-behavior: smooth;
 }
@@ -632,15 +649,24 @@
   align-items: center;
   gap: 50px;
   background-image: url("https://github.com/pastilkaxo/WebPhotoIllustrator/blob/f7b17b911ecc6847fb5be11e4823fd1ec522adc1/public/Images/bg1.png?raw=true");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  flex-direction: row;
 }
 #section1 .sum1 {
   font-size: 80px;
+  text-align: center;
+  flex: 1;
+  max-width: 50%;
 }
 #section1 .regForm {
   border-radius: 30px;
   background-color: white;
   width: 500px;
   height: 600px;
+  flex: 1;
+  max-width: 500px;
 }
 #section1 .logoBg {
   border-radius: 30px;
@@ -656,18 +682,71 @@
   color: white;
   font-weight: bold;
   border: none;
-  transition: transform 0.3s ease;
-  transition: background-color 0.1s ease;
+  transition: transform 0.3s ease, background-color 0.1s ease;
   margin-top: 10px;
 }
 #section1 #accEnter:hover {
   transform: scale(1.1);
-  margin-top: 10px;
 }
 #section1 #accEnter:active {
   background-color: green;
 }
 
+@media (max-width: 768px) {
+  #section1 {
+    flex-direction: column;
+    gap: 30px;
+    padding: 15px;
+  }
+  #section1 .sum1 {
+    font-size: 60px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  #section1 .regForm {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+  }
+}
+@media (max-width: 480px) {
+  #section1 {
+    gap: 20px;
+    padding: 10px;
+    flex-direction: row;
+  }
+  #section1 .sum1 {
+    display: none;
+  }
+  #section1 .regForm {
+    height: 75%;
+    width: 95%;
+    max-width: 350px;
+    padding: 20px !important;
+  }
+  #section1 .logoBg {
+    width: 50px;
+    height: 50px;
+  }
+  #section1 #accEnter {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 320px) {
+  #section1 .sum1 {
+    font-size: 32px;
+  }
+  #section1 .regForm {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
+  }
+  #section1 .logoBg {
+    width: 40px;
+    height: 40px;
+  }
+}
 #section2 {
   background-color: #4ecdc4;
 }
