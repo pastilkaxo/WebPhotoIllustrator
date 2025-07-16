@@ -196,19 +196,16 @@
   transform: translateY(0);
 }
 .active-action-menu .close-menu-btn {
-  background: #dc3545;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 15px;
+  background: none;
   color: white;
   border: none;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
   cursor: pointer;
   font-size: 25px;
-  line-height: 1;
-  transition: background-color 0.2s;
-}
-.active-action-menu .close-menu-btn:hover {
-  background: #c82333;
 }
 .active-action-menu .selected-action-menu {
   display: flex;
@@ -374,11 +371,7 @@
     padding: 8px 12px;
   }
   .active-action-menu .close-menu-btn {
-    bottom: 75px;
-    width: 25px;
-    height: 25px;
-    font-size: 18px;
-    right: 12px;
+    font-size: 15px;
   }
   .active-action-menu .selected-action-menu {
     gap: 12px;

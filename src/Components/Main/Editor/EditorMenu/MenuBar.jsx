@@ -72,7 +72,7 @@ export default function MenuBar({x, y, width, height, selectedTool, isActionMenu
               <li>H:<span id="h-value">{height}</span></li>
             </ul>
           </div>
-          <button className="close-menu-btn" onClick={closeActionMenu}>×</button>
+          <button className="close-menu-btn" onClick={closeActionMenu}><p className='mb-0'>✖</p></button>
         </section>
       </section>
   )
