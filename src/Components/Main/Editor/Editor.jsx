@@ -12,7 +12,21 @@ export default function Editor() {
   const [height, setHeight] = useState(null);
   const [pointerCords, setPointerCords] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  let actionIcon = 'select';
+
+  const [selectedTool, setSelectedTool] = useState(null);
+  const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
+  
+  // Обработчик клика по инструменту
+  const handleToolClick = (toolName) => {
+    setSelectedTool(toolName);
+    setIsActionMenuOpen(true);
+  };
+
+  const closeActionMenu = () => {
+    setIsActionMenuOpen(false);
+    setSelectedTool(null);
+  };
+
   // Zoom handlers
   const handleZoomIn = () => {
     if (!fabricRef.current || zoom >= 3) return;
@@ -68,6 +82,9 @@ export default function Editor() {
         y={pointerCords.y}
         width={width}
         height={height}
+        selectedTool={selectedTool}
+        isActionMenuOpen={isActionMenuOpen}
+        closeActionMenu={closeActionMenu}
       />
       <EditorContent
         canvasRef={canvasRef}
@@ -78,6 +95,7 @@ export default function Editor() {
         zoom={zoom}
         setZoom={setZoom}
         addRectangle={addRectangle}
+        handleToolClick={handleToolClick}
       />
     </div>
   );
