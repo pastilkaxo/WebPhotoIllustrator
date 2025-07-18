@@ -693,7 +693,9 @@
   transition: color 0.3s ease;
 }
 
-.nav-item {
+.header-offcanvas .nav-item {
+  text-align: center;
+  border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
   justify-content: center;
