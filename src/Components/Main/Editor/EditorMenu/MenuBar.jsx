@@ -5,6 +5,7 @@ import Figures from './ObjectsMenu/Figures';
 import Text from './ObjectsMenu/Text';
 import Zoom from './ObjectsMenu/Zoom';
 import Fill from './ObjectsMenu/Fill';
+import EditorNavBar from './EditorNavBar/EditorNavBar';
 
 export default function MenuBar({x, y, width, height, selectedTool, isActionMenuOpen, closeActionMenu}) {
     
@@ -36,16 +37,27 @@ export default function MenuBar({x, y, width, height, selectedTool, isActionMenu
 
   return (
       <section id="menu-bar">
-        <ul id="tool-menu" className='mb-0'>
-          <li className="tool-item">
-            <Link className="nav-link text-white" to="/">
+      <ul id="tool-menu" className='mb-0'>
+        <li className='tool-item'>
+                      <Link className="nav-link text-white" to="/">
               <img className="logoIcon" src="/Images/logo.png" alt="logo" />
             </Link>
           </li>
-          <li className="tool-item">Файл</li>
-          <li className="tool-item">Редактировать</li>
-          <li className="tool-item">Изображение</li>
-          <li className="tool-item">Помощь</li>
+          <li className="tool-item tool-toggler">Файл</li>
+          <li className="tool-item tool-toggler">Редактировать</li>
+          <li className="tool-item tool-toggler">Изображение</li>
+        <li className="tool-item tool-toggler">Помощь</li>
+        <li className='tool-item tool-toggler'>
+          <Tooltip title="Сохранить" arrow>
+            <button className='downloadButton'><img src='/Images/EditorIcons/download.png' /></button>
+          </Tooltip>
+        </li>
+        <li className='tool-item'>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#editorNavBar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><img className='editor-toggler' src='/Images/EditorIcons/toggler.png'/></span>
+          </button>
+          <EditorNavBar/>
+        </li>
         </ul>
         
         <section 

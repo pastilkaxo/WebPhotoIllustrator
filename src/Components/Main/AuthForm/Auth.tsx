@@ -31,11 +31,11 @@ export default function Auth() {
         <a href='#' style={{textDecoration:"none"}}>Забыли пароль?</a>
         <button type='submit' id='accEnter'>Войти</button>
         <p className='text-dark m-0 p-1'>ИЛИ</p>
-        <GoogleLogin
+        {/* <GoogleLogin
           onSuccess={handleLoginSuccess}
           onError={() => <ErrorAlert message="Ошибка входа" />}
-        />
-        <a className='pt-2'  href='#' style={{textDecoration:"none", fontSize:"15px"}}>Ещё не зарегистрированы в Muse? <span className='text-dark'>Зарегистрироваться</span></a>
+        /> */}
+        <a className='pt-2'  href='#' style={{textDecoration:"none", fontSize:"15px", textAlign:"center"}}>Ещё не зарегистрированы в Muse? <span className='text-dark'>Зарегистрироваться</span></a>
       </div>
     </Box>
   )

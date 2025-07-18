@@ -248,6 +248,16 @@ export default function EditorContent({
             <img src='/Images/EditorIcons/pencil.png' alt='pencil'/>
             </Tooltip>
           </li>
+          <li className='tool-action' onClick={() => handleToolClick('hand')}>
+            <Tooltip title="Рука" arrow>
+            <img src='/Images/EditorIcons/hand.png' alt='hand'/>
+            </Tooltip>
+          </li>
+          <li className='tool-action' onClick={() => handleToolClick('lasso')}>
+            <Tooltip title="Рука" arrow>
+            <img src='/Images/EditorIcons/lasso.png' alt='lasso'/>
+            </Tooltip>
+          </li>
           <li className='tool-action' onClick={() => handleToolClick('brush')}>
             <Tooltip title="Главный цвет" arrow>
               <input type='color' id='main-color' />
