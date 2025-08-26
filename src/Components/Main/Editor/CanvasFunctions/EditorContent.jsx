@@ -188,12 +188,12 @@ export default function EditorContent({
   return (
    <div className="editor-content">
         <ul id='tool-actions'>
-          <li className='tool-action' onClick={() => handleToolClick('move')}>
+          <li className='tool-action' onClick={() => handleToolClick('arrange')}>
             <Tooltip title="Перемещение" arrow>
              <img src='/Images/EditorIcons/arrange.svg' alt='arrange'/>
             </Tooltip>
           </li>
-          <li className='tool-action' onClick={() => handleToolClick('select')}>
+          <li className='tool-action' onClick={() => handleToolClick('selection')}>
             <Tooltip title="Выделение" arrow>
               <img src='/Images/EditorIcons/selection.png' alt='selection'/>
             </Tooltip>
@@ -218,12 +218,12 @@ export default function EditorContent({
             <img src='/Images/EditorIcons/cut.png' alt='cut'/>
             </Tooltip>
           </li>
-          <li className='tool-action' onClick={() => handleToolClick('copy')}>
+          <li className='tool-action' onClick={() => handleToolClick('fill')}>
             <Tooltip title="Заливка" arrow>
             <img src='/Images/EditorIcons/fill.png' alt='fill'/>
             </Tooltip>
           </li>
-          <li className='tool-action'   onClick={() => handleToolClick('paste')}>
+          <li className='tool-action'   onClick={() => handleToolClick('gradient')}>
             <Tooltip title="Градиент" arrow>
             <img src='/Images/EditorIcons/gradient.png' alt='gradient'/>
             </Tooltip>

@@ -67,7 +67,7 @@ export default function MenuBar({x, y, width, height, selectedTool, isActionMenu
           <div className='selected-action-menu'>
             <img 
               className="action-icon" 
-              src={`/Images/EditorIcons/${selectedTool || 'select'}.png`} 
+              src={`/Images/EditorIcons/${selectedTool}.png`} 
               alt="action-icon" 
             />
             <span className="action-name">

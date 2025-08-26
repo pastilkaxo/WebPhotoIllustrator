@@ -701,116 +701,106 @@
   justify-content: center;
 }
 
-#section1 {
+.main-container {
+  scroll-behavior: smooth;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: clamp(20px, 5vw, 50px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 5vw, 40px);
   background-image: url("https://github.com/pastilkaxo/WebPhotoIllustrator/blob/f7b17b911ecc6847fb5be11e4823fd1ec522adc1/public/Images/bg1.png?raw=true");
   background-size: cover;
   background-position: center;
-  padding: 20px;
-  flex-direction: row;
+  padding: clamp(15px, 5vw, 40px);
+  flex-direction: column;
   min-height: 100vh;
 }
-#section1 .sum1 {
-  font-size: clamp(32px, 6vw, 80px);
-  text-align: center;
-  flex: 1;
-  max-width: 50%;
-  line-height: 1.2;
-  margin: 0;
-}
 #section1 .regForm {
-  border-radius: 30px;
-  background-color: white;
-  width: clamp(300px, 40vw, 500px);
-  height: clamp(400px, 50vh, 600px);
-  flex: 1;
-  max-width: 500px;
-  padding: clamp(15px, 3vw, 30px);
+  marigin-left: 100px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5098039216);
+  width: clamp(280px, 40vw, 400px);
+  padding: clamp(15px, 3vw, 25px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #section1 .logoBg {
-  border-radius: 30px;
+  border-radius: 50%;
   background-color: green;
-  width: clamp(40px, 5vw, 60px);
-  height: clamp(40px, 5vw, 60px);
+  width: clamp(40px, 6vw, 60px);
+  height: clamp(40px, 6vw, 60px);
+  margin-bottom: clamp(8px, 1.5vw, 15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#section1 #accEnter {
-  width: 100%;
-  padding: clamp(5px, 1vw, 10px);
-  border-radius: 30px;
-  background-color: red;
-  color: white;
-  font-weight: bold;
-  border: none;
-  transition: transform 0.3s ease, background-color 0.1s ease;
-  margin-top: clamp(5px, 1vw, 15px);
-}
-#section1 #accEnter:hover {
-  transform: scale(1.1);
-}
-#section1 #accEnter:active {
-  background-color: green;
+#section1 .logoIcon {
+  width: 70%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (max-width: 768px) {
   #section1 {
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px;
-  }
-  #section1 .sum1 {
-    font-size: clamp(28px, 8vw, 50px);
-    max-width: 100%;
-    margin-bottom: 10px;
+    padding: 20px;
   }
   #section1 .regForm {
     width: 90%;
-    max-width: 400px;
-    height: clamp(350px, 45vh, 500px);
+    max-width: 350px;
+    padding: clamp(15px, 3vw, 25px);
+  }
+  #section1 .logoBg {
+    width: clamp(35px, 5vw, 50px);
+    height: clamp(35px, 5vw, 50px);
+  }
+  #section1 .logoIcon {
+    max-width: 30px;
   }
 }
 @media (max-width: 480px) {
   #section1 {
-    gap: 15px;
-    padding: 10px;
-  }
-  #section1 .sum1 {
-    font-size: clamp(24px, 10vw, 36px);
-    line-height: 1.2;
+    padding: 15px;
   }
   #section1 .regForm {
     width: 95%;
-    max-width: 350px;
-    height: clamp(300px, 40vh, 420px);
-    padding: 15px !important;
+    max-width: 320px;
+    padding: 15px;
   }
   #section1 .logoBg {
-    width: clamp(30px, 8vw, 50px);
-    height: clamp(30px, 8vw, 50px);
+    width: clamp(30px, 18vw, 45px);
+    height: clamp(30px, 18vw, 45px);
+    margin-bottom: 8px;
   }
-  #section1 #accEnter {
-    padding: clamp(5px, 2vw, 8px);
-    font-size: clamp(12px, 3vw, 14px);
-  }
-}
-@media (max-width: 320px) {
-  #section1 {
-    gap: 10px;
-  }
-  #section1 .sum1 {
-    font-size: clamp(20px, 12vw, 28px);
-  }
-  #section1 .regForm {
-    width: 98%;
-    max-width: 280px;
-    height: clamp(280px, 35vh, 350px);
-  }
-  #section1 .logoBg {
-    width: clamp(25px, 10vw, 40px);
-    height: clamp(25px, 10vw, 40px);
+  #section1 .logoIcon {
+    max-width: 55px;
   }
 }
+#section2, #section3, #section4 {
+  padding: 20px;
+  text-align: center;
+}
+#section2 h1, #section3 h1, #section4 h1 {
+  font-size: clamp(24px, 5vw, 36px);
+}
+#section2 p, #section3 p, #section4 p {
+  font-size: clamp(16px, 4vw, 20px);
+}
+
 @media (max-width: 767.98px) {
   .wrapper {
     flex-direction: column !important;
