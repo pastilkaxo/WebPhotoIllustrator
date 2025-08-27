@@ -6,9 +6,21 @@ import Text from './ObjectsMenu/Text';
 import Zoom from './ObjectsMenu/Zoom';
 import Fill from './ObjectsMenu/Fill';
 import EditorNavBar from './EditorNavBar/EditorNavBar';
+import { useEffect } from 'react';
 
 export default function MenuBar({x, y, width, height, selectedTool, isActionMenuOpen, closeActionMenu}) {
-    
+   
+  useEffect(() => {
+  if (isActionMenuOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+  return () => {
+    document.body.style.overflow = 'auto';
+  };
+    }, [isActionMenuOpen]);
+  
   const getToolContent = () => {
     switch(selectedTool) {
       case 'figures':
@@ -78,10 +90,6 @@ export default function MenuBar({x, y, width, height, selectedTool, isActionMenu
             <ul className="pointer-cords mb-0">
               <li>X:<span id="x-value">{x}</span></li>
               <li>Y:<span id="y-value">{y}</span></li>
-            </ul>
-            <ul className="canva-sizes mb-0">
-              <li>W:<span id="w-value">{width}</span></li>
-              <li>H:<span id="h-value">{height}</span></li>
             </ul>
           </div>
           <button className="close-menu-btn" onClick={closeActionMenu}><p className='mb-0'>✖</p></button>
