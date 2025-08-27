@@ -13,7 +13,7 @@ function Header() {
 
   return (
     <div
-      className="d-flex flex-md-column flex-row flex-shrink-0 p-3 bg-success bg-gradient text-white"
+      className="d-flex flex-md-column flex-row p-3 bg-success bg-gradient text-white"
       style={{
         position: 'fixed',
         top: 0,
@@ -49,8 +49,15 @@ function Header() {
             <img className='homeIcon' src='/Images/edit.png' alt='Create' />
           </Link>
         </li>
+        <li className='nav-item'>
+          <img className='accountIcon ms-md-0 ms-auto' src='/Images/login.png' alt='login' data-bs-toggle="modal" data-bs-target="#loginModal" />
+        </li>
       </ul>
-      <img className='accountIcon ms-md-0 ms-auto' src='/Images/login.png' alt='login' data-bs-toggle="modal" data-bs-target="#loginModal" />
+      <div className='adaptive-logo'>
+      <Link className="nav-link text-white" to="/">
+            <img className='logoIcon' src='/Images/logo.png' alt='logo' />
+      </Link>
+      </div>
       <LoginModal />
       <NavBar/>
     </div>

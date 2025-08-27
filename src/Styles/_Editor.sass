@@ -61,7 +61,7 @@
 
 .editor-content
   display: flex
-  flex: 1
+  flex: 1 // занимает все пространство под меню
   background-color: #171719
   overflow: hidden
 
@@ -172,35 +172,30 @@
   cursor: pointer
 
 .canvas-wrapper
-  flex: 1
+  flex: 1 // занимает все пространство внутри editor-content
   display: flex
-  align-items: center
   justify-content: center
+  align-items: center
   width: 100%
-  overflow: auto
-  background-color: #000000
-  position: relative
-  // Убираем фиксированные высоты - используем flex: 1
+  overflow: hidden
+  background-color: #000
 
 .canvas-container
-  position: relative
+  flex: 1
   display: flex
-  align-items: center
   justify-content: center
+  align-items: center
   width: 100%
   height: 100%
-  overflow: auto
-  background-color: #000000
 
-  // Включаем zoom и pan для canvas
-  canvas
-    display: block
-    cursor: grab
-    max-width: none !important
-    max-height: none !important
+canvas
+  display: block
+  width: 100%
+  height: 100%
+  cursor: grab
 
-    &:active
-      cursor: grabbing
+canvas:active
+  cursor: grabbing
 
 .not-active-action-menu
   display: none

@@ -8,8 +8,6 @@ import MenuBar from './EditorMenu/MenuBar';
 export default function Editor() {
   const canvasRef = useRef(null);
   const fabricRef = useRef(null);
-  const [width, setWidth] = useState(null);
-  const [height, setHeight] = useState(null);
   const [pointerCords, setPointerCords] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
 
@@ -80,8 +78,6 @@ export default function Editor() {
       <MenuBar
         x={pointerCords.x}
         y={pointerCords.y}
-        width={width}
-        height={height}
         selectedTool={selectedTool}
         isActionMenuOpen={isActionMenuOpen}
         closeActionMenu={closeActionMenu}
@@ -89,8 +85,6 @@ export default function Editor() {
       <EditorContent
         canvasRef={canvasRef}
         fabricRef={fabricRef}
-        setWidth={setWidth}
-        setHeight={setHeight}
         setPointerCords={setPointerCords}
         zoom={zoom}
         setZoom={setZoom}
