@@ -8,7 +8,7 @@ import Fill from './ObjectsMenu/Fill';
 import EditorNavBar from './EditorNavBar/EditorNavBar';
 import { useEffect } from 'react';
 
-export default function MenuBar({x, y, width, height, selectedTool, isActionMenuOpen, closeActionMenu}) {
+export default function MenuBar({x, y, width, height, selectedTool, isActionMenuOpen, closeActionMenu,canvasRef}) {
    
   useEffect(() => {
   if (isActionMenuOpen) {
@@ -21,31 +21,21 @@ export default function MenuBar({x, y, width, height, selectedTool, isActionMenu
   };
     }, [isActionMenuOpen]);
   
-  const getToolContent = () => {
-    switch(selectedTool) {
-      case 'figures':
-        return (
-          <Figures />
-        );
-      case 'text':
-        return (
-          <Text />
-        );
-      case 'copy':
-      case 'fill':
-        return (
-          <Fill />
-        );
-      case 'zoom':
-        return (
-          <Zoom />
-        );
-      default:
-        return (
-          <p className='mb-0 p-3'>Инструмент: {selectedTool || 'Не выбран'}</p>
-        );
-    }
-  };
+const getToolContent = () => {
+  switch(selectedTool) {
+    case 'figures':
+      return <Figures canvas={canvasRef.current} />;
+    case 'text':
+      return <Text canvas={canvasRef.current} />;
+    case 'fill':
+      return <Fill canvas={canvasRef.current} />;
+    case 'zoom':
+      return <Zoom canvas={canvasRef.current} />;
+    default:
+      return <p className='mb-0 p-3'>Инструмент: {selectedTool || 'Не выбран'}</p>;
+  }
+};
+
 
   return (
       <section id="menu-bar">
@@ -61,12 +51,12 @@ export default function MenuBar({x, y, width, height, selectedTool, isActionMenu
         <li className="tool-item tool-toggler">Помощь</li>
         <li className='tool-item tool-toggler'>
           <Tooltip title="Сохранить" arrow>
-            <button className='downloadButton'><img src='/Images/EditorIcons/download.png' /></button>
+            <button className='downloadButton'><img src='/Images/EditorIcons/download.png' alt=''/></button>
           </Tooltip>
         </li>
         <li className='tool-item'>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#editorNavBar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><img className='editor-toggler' src='/Images/EditorIcons/toggler.png'/></span>
+            <span class="navbar-toggler-icon"><img className='editor-toggler' src='/Images/EditorIcons/toggler.png' alt=''/></span>
           </button>
           <EditorNavBar/>
         </li>

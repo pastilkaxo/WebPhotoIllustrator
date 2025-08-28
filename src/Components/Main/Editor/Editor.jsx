@@ -4,6 +4,7 @@ import EditorContent from './CanvasFunctions/EditorContent';
 import { fabric } from 'fabric';
 import Tooltip from '@mui/material/Tooltip';
 import MenuBar from './EditorMenu/MenuBar';
+import { toolsMap } from './ToolsMap';
 
 export default function Editor() {
   const canvasRef = useRef(null);
@@ -15,48 +16,20 @@ export default function Editor() {
   const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
   
   // Обработчик клика по инструменту
-  const handleToolClick = (toolName) => {
-    setSelectedTool(toolName);
-    setIsActionMenuOpen(true);
-  };
+const handleToolClick = (tool) => {
+  setSelectedTool(tool);           // Для меню
+  setIsActionMenuOpen(true);       // Открываем меню, если есть настройки
+  if (toolsMap[tool]) {
+    toolsMap[tool](fabricRef.current);
+  }
+};
+
 
   const closeActionMenu = () => {
     setIsActionMenuOpen(false);
     setSelectedTool(null);
   };
 
-  // Zoom handlers
-  const handleZoomIn = () => {
-    if (!fabricRef.current || zoom >= 3) return;
-    const newZoom = zoom + 0.1;
-    setZoom(newZoom);
-    fabricRef.current.setZoom(newZoom);
-  };
-
-  const handleZoomOut = () => {
-    if (!fabricRef.current || zoom <= 0.5) return;
-    const newZoom = zoom - 0.1;
-    setZoom(newZoom);
-    fabricRef.current.setZoom(newZoom);
-  };
-
-  const handleResetZoom = () => {
-    if (!fabricRef.current) return;
-    setZoom(1);
-    fabricRef.current.setZoom(1);
-  };
-
-  const addCircle = () => {
-    if (!fabricRef.current) return;
-    const circle = new fabric.Circle({
-      radius: 50,
-      fill: 'red',
-      left: 100,
-      top: 100,
-    });
-    fabricRef.current.add(circle);
-    fabricRef.current.renderAll();
-  };
 
   const addRectangle = () => {
     if (!fabricRef.current) return;
@@ -81,6 +54,7 @@ export default function Editor() {
         selectedTool={selectedTool}
         isActionMenuOpen={isActionMenuOpen}
         closeActionMenu={closeActionMenu}
+        canvasRef={fabricRef}
       />
       <EditorContent
         canvasRef={canvasRef}
