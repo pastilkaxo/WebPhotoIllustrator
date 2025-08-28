@@ -1,18 +1,18 @@
-import * as FabricTools from './FabricTools.js'
+import * as FabricTools from './FabricTools.js';
 
 export const toolsMap = {
-  arrange: (canvas) => FabricTools.enableArrange(canvas),
-  selection: (canvas) => FabricTools.enableSelection(canvas),
-  crop: (canvas) => FabricTools.enableCrop(canvas),
-  figures: (canvas) => {}, // не вызываем сразу, настройки через меню
+  arrange: (canvas) => {},        // можно реализовать позже
+  selection: (canvas) => { FabricTools.disableDrawing(canvas); },
+  crop: (canvas) => {},           // через меню
+  figures: (canvas) => {},        // через меню
   eraser: (canvas) => FabricTools.enableEraser(canvas),
-  cut: (canvas) => FabricTools.cutSelected(canvas),
-  fill: (canvas) => {}, // через меню можно выбрать цвет
-  gradient: (canvas) => {}, // через меню выбираем цвета
-  zoom: (canvas) => {}, // через меню
-  picker: (canvas) => {}, // через меню
-  text: (canvas) => {}, // через меню
+  cut: (canvas) => {},            // через меню
+  fill: (canvas) => {},           // через меню
+  gradient: (canvas) => {},       // через меню
+  zoom: (canvas) => {},           // через меню
+  picker: (canvas) => {},         // через меню
+  text: (canvas) => {},           // через меню
   pencil: (canvas) => FabricTools.enablePencil(canvas),
-  hand: (canvas) => FabricTools.enableHand(canvas),
-  lasso: (canvas) => FabricTools.enableLasso(canvas)
+  hand: (canvas) => {},           // через меню (pan)
+  lasso: (canvas) => {}           // через меню (ActiveSelection)
 };

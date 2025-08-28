@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditorContent from './CanvasFunctions/EditorContent';
-import { fabric } from 'fabric';
+import { Canvas, Rect } from 'fabric';
 import Tooltip from '@mui/material/Tooltip';
 import MenuBar from './EditorMenu/MenuBar';
 import { toolsMap } from './ToolsMap';
@@ -34,7 +34,7 @@ const handleToolClick = (tool) => {
   const addRectangle = () => {
     if (!fabricRef.current) return;
 
-    const rect = new fabric.Rect({
+    const rect = new Rect({
       width: 100,
       height: 60,
       fill: 'blue',
