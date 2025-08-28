@@ -9,10 +9,7 @@ export default function Main() {
   return (
     <div className="main-container">
       <section id="section1" className="section roboto-font d-flex">
-        <div className='regForm d-flex align-items-center  flex-column p-5'>
-          <span className='logoBg d-flex justify-content-center align-items-center'><img className='logoIcon p-1' src='/Images/logo.png' alt='logo' /></span>
           {logged ? <Auth/> : null}
-        </div>
       </section>
       <section id="section2" className="section">
         <h1>Section 2</h1>

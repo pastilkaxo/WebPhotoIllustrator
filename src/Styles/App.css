@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .paint-wrapper {
   min-height: 100vh;
   display: flex;
@@ -703,10 +704,14 @@ canvas:active {
 .adaptive-logo {
   display: none;
 }
-@media (max-width: 768px) {
-  .adaptive-logo {
-    display: block;
-  }
+
+.adaptive-logo {
+  display: block;
+}
+
+/* Скрываем при landscape, даже если ширина меньше 768px */
+.adaptive-logo {
+  display: none;
 }
 
 .main-container {
@@ -714,7 +719,7 @@ canvas:active {
 }
 
 .section {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -735,33 +740,6 @@ canvas:active {
   flex-direction: column;
   min-height: 100vh;
 }
-#section1 .regForm {
-  marigin-left: 100px;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.5098039216);
-  width: clamp(280px, 40vw, 400px);
-  padding: clamp(15px, 3vw, 25px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#section1 .logoBg {
-  border-radius: 50%;
-  background-color: green;
-  width: clamp(40px, 6vw, 60px);
-  height: clamp(40px, 6vw, 60px);
-  margin-bottom: clamp(8px, 1.5vw, 15px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#section1 .logoIcon {
-  width: 70%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
 
 @media (max-width: 768px) {
   #section1 {
@@ -770,11 +748,12 @@ canvas:active {
   #section1 .regForm {
     width: 90%;
     max-width: 350px;
+    max-height: 85vh;
     padding: clamp(15px, 3vw, 25px);
   }
   #section1 .logoBg {
-    width: clamp(35px, 5vw, 50px);
-    height: clamp(35px, 5vw, 50px);
+    width: clamp(35px, 12vw, 50px);
+    height: clamp(35px, 12vw, 50px);
   }
   #section1 .logoIcon {
     max-width: 30px;
@@ -787,6 +766,7 @@ canvas:active {
   #section1 .regForm {
     width: 95%;
     max-width: 320px;
+    max-height: 80vh;
     padding: 15px;
   }
   #section1 .logoBg {

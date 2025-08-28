@@ -1,97 +1,112 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Box, TextField, Button, Typography, Stack, Slide } from '@mui/material';
+import Register from './Register';
 
 export default function Auth() {
-  const navigate = useNavigate();
+  const [showRegister, setShowRegister] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
 
-  const handleLoginSuccess = (credentialResponse: any) => {
-    console.log('Login Success: currentUser:', credentialResponse);
-    navigate('/');
+  const validate = () => {
+    const newErrors: { email?: string; password?: string } = {};
+    if (!email) newErrors.email = 'Введите email';
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Некорректный email';
+    if (!password) newErrors.password = 'Введите пароль';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      console.log('Login data:', { email, password });
+    }
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '100%' },
-        maxWidth: '400px',
-        padding: '20px',
-        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-        borderRadius: '20px',
-        backgroundColor: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField
-        id="outlined-basic"
-        label="Электронный адрес"
-        variant="outlined"
-        fullWidth
-      />
-      <TextField
-        id="outlined-password-input"
-        label="Пароль"
-        type="password"
-        autoComplete="current-password"
-        fullWidth
-      />
-      <a
-        href="#"
-        style={{
-          textDecoration: 'none',
-          fontSize: '14px',
-          marginTop: '10px',
-          color: '#007bff',
-        }}
-      >
-        Забыли пароль?
-      </a>
-      <button
-        type="submit"
-        id="accEnter"
-        style={{
-          width: '100%',
-          padding: '10px',
-          marginTop: '15px',
-          borderRadius: '30px',
-          backgroundColor: 'red',
-          color: 'white',
-          fontWeight: 'bold',
-          border: 'none',
-          cursor: 'pointer',
-          transition: 'transform 0.3s ease, background-color 0.1s ease',
-        }}
-        onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
-        onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-        onMouseDown={(e) => (e.currentTarget.style.backgroundColor = 'green')}
-        onMouseUp={(e) => (e.currentTarget.style.backgroundColor = 'red')}
-      >
-        Войти
-      </button>
-      <p className="text-dark m-0 p-1" style={{ fontSize: '14px' }}>
-        ИЛИ
-      </p>
-      <a
-        className="pt-2"
-        href="#"
-        style={{
-          textDecoration: 'none',
-          fontSize: '14px',
-          textAlign: 'center',
-          color: '#007bff',
-        }}
-      >
-        Ещё не зарегистрированы в Muse?{' '}
-        <span className="text-dark" style={{ fontWeight: 'bold' }}>
-          Зарегистрироваться
-        </span>
-      </a>
-    </Box>
+    <>
+      {!showRegister && (
+        <Slide direction="right" in={!showRegister} mountOnEnter unmountOnExit>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            sx={{
+              width: 'clamp(280px, 40vw, 400px)',
+              p: 'clamp(15px, 3vw, 25px)',
+              borderRadius: 3,
+              boxShadow: 3,
+              bgcolor: 'white',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Stack spacing={2} sx={{ width: '100%' }}>
+              <TextField
+                label="Электронный адрес"
+                variant="outlined"
+                fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+              <TextField
+                label="Пароль"
+                type="password"
+                fullWidth
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                error={!!errors.password}
+                helperText={errors.password}
+              />
+
+              <Typography
+                variant="body2"
+                color="primary"
+                sx={{ textAlign: 'right', cursor: 'pointer' }}
+              >
+                Забыли пароль?
+              </Typography>
+
+              <Button
+                type="submit"
+                variant="contained"
+                fullWidth
+                sx={{
+                  borderRadius: '25px',
+                  py: 1.2,
+                  fontWeight: 'bold',
+                  bgcolor: 'red',
+                  '&:hover': { bgcolor: 'darkred', transform: 'scale(1.02)' },
+                  transition: '0.3s',
+                }}
+              >
+                Войти
+              </Button>
+
+              <Typography textAlign="center" sx={{ fontSize: 14 }}>
+                ИЛИ
+              </Typography>
+
+              <Typography
+                variant="body2"
+                sx={{ textAlign: 'center', cursor: 'pointer', color: 'primary.main' }}
+                onClick={() => setShowRegister(true)}
+              >
+                Ещё не зарегистрированы?{' '}
+                <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>
+                  Зарегистрироваться
+                </Box>
+              </Typography>
+            </Stack>
+          </Box>
+        </Slide>
+      )}
+      {showRegister && <Register onBack={() => setShowRegister(false)} />}
+    </>
   );
 }

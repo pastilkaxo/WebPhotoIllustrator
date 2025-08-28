@@ -2,7 +2,7 @@
     scroll-behavior: smooth
 
 .section
-    height: 100vh
+    min-height: 100vh
     display: flex
     flex-direction: column
     justify-content: center
@@ -22,33 +22,6 @@
     flex-direction: column
     min-height: 100vh
 
-    & .regForm
-        marigin-left: 100px
-        border-radius: 20px
-        background-color: #ffffff82
-        width: clamp(280px, 40vw, 400px)
-        padding: clamp(15px, 3vw, 25px)
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
-        display: flex
-        flex-direction: column
-        align-items: center
-
-    & .logoBg
-        border-radius: 50%
-        background-color: green
-        width: clamp(40px, 6vw, 60px)
-        height: clamp(40px, 6vw, 60px)
-        margin-bottom: clamp(8px, 1.5vw, 15px)
-        display: flex
-        justify-content: center
-        align-items: center
-
-    & .logoIcon
-        width: 70%
-        height: auto
-        object-fit: contain
-
-// Планшеты (до 768px)
 // Планшеты (до 768px)
 @media (max-width: 768px)
     #section1
@@ -57,11 +30,12 @@
         & .regForm
             width: 90%
             max-width: 350px
+            max-height: 85vh
             padding: clamp(15px, 3vw, 25px)
 
         & .logoBg
-            width: clamp(35px, 5vw, 50px)
-            height: clamp(35px, 5vw, 50px)
+            width: clamp(35px, 12vw, 50px)
+            height: clamp(35px, 12vw, 50px)
 
         & .logoIcon
             max-width: 30px
@@ -74,6 +48,7 @@
         & .regForm
             width: 95%
             max-width: 320px
+            max-height: 80vh
             padding: 15px
 
         & .logoBg
@@ -83,6 +58,7 @@
 
         & .logoIcon
             max-width: 55px
+
 // Общие стили для других секций
 #section2, #section3, #section4
     padding: 20px
