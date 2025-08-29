@@ -24,12 +24,29 @@ export default function Register({ onBack }: RegisterProps) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log('Register data:', { email, login, password });
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (validate()) {
+    try {
+      const response = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, login, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Регистрация успешна!");
+        onBack();
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error("Ошибка:", err);
     }
-  };
+  }
+};
+
 
   return (
     <Slide direction="left" in mountOnEnter unmountOnExit>
