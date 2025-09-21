@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import EditorContent from './CanvasFunctions/EditorContent';
 import { Canvas, Rect } from 'fabric';
-import Tooltip from '@mui/material/Tooltip';
 import MenuBar from './EditorMenu/MenuBar';
 import { toolsMap } from './ToolsMap';
 
@@ -17,8 +15,8 @@ export default function Editor() {
   
   // Обработчик клика по инструменту
 const handleToolClick = (tool) => {
-  setSelectedTool(tool);           // Для меню
-  setIsActionMenuOpen(true);       // Открываем меню, если есть настройки
+  setSelectedTool(tool);          
+  setIsActionMenuOpen(true);      
   if (toolsMap[tool]) {
     toolsMap[tool](fabricRef.current);
   }

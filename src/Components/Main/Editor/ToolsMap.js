@@ -1,7 +1,7 @@
 import * as FabricTools from './FabricTools.js';
 
 export const toolsMap = {
-  arrange: (canvas) => {},        // можно реализовать позже
+  arrange: (canvas) => {},        // можно реализовать 
   selection: (canvas) => { FabricTools.disableDrawing(canvas); },
   crop: (canvas) => {},           // через меню
   figures: (canvas) => {},        // через меню

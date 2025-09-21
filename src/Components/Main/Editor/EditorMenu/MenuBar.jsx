@@ -7,6 +7,8 @@ import Zoom from './ObjectsMenu/Zoom';
 import Fill from './ObjectsMenu/Fill';
 import EditorNavBar from './EditorNavBar/EditorNavBar';
 import { useEffect } from 'react';
+import MenuBarMainPart from '../MenuBarMainPart';
+
 
 export default function MenuBar({x, y, width, height, selectedTool, isActionMenuOpen, closeActionMenu,canvasRef}) {
    
@@ -45,10 +47,7 @@ const getToolContent = () => {
               <img className="logoIcon" src="/Images/logo.png" alt="logo" />
             </Link>
           </li>
-          <li className="tool-item tool-toggler">Файл</li>
-          <li className="tool-item tool-toggler">Редактировать</li>
-          <li className="tool-item tool-toggler">Изображение</li>
-        <li className="tool-item tool-toggler">Помощь</li>
+      <MenuBarMainPart/>
         <li className='tool-item tool-toggler'>
           <Tooltip title="Сохранить" arrow>
             <button className='downloadButton'><img src='/Images/EditorIcons/download.png' alt=''/></button>

@@ -32,6 +32,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       if (response.ok) {
         alert("Успешный вход!");
         localStorage.setItem("token", data.token);
+        console.log(data.token);
       } else {
         alert(data.message);
       }
